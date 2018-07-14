@@ -1,0 +1,70 @@
+//		RandomInterfaceImplementation obj =
+//				new RandomInterfaceImplementation();
+//		RandomInterfaceImplementation obj2 =
+//				new RandomInterfaceImplementation();
+//		obj.printObj();
+//		System.out.println(obj.returnObj("KamRan"));
+//		RandomInterface rando = obj.onlyExtendo(obj2);
+//		rando.printObj();
+		//Scanner sc = new Scanner(new BufferedReader(new FileReader("C:/robot.txt")));
+		
+//		File file = new File("C:/robot.txt");
+////		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8"));
+//		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8));
+////		while(br.ready())
+////		{
+////			try {
+////				System.out.println((char)br.read());
+////			} catch (Exception e1) {
+////				// TODO Auto-generated catch block
+////				e1.printStackTrace();
+////			}
+////		}
+//
+//		Stack<String> ops = new Stack<>(String.class, 20);
+//		Stack<Double> vals = new Stack<>(Double.class, 20);
+//			
+//		while(br.ready())
+//		{
+//			Character str = (char)br.read();
+//			System.out.println(br.read().equals("("));
+////			if		(str.equals('('))	;
+////			else if	(str.equals("?"))	;
+////			else if	(str.equals("+"))	{ops.push(str);}
+////			else if	(str.equals("-"))	ops.push(str);
+////			else if	(str.equals("*"))	ops.push(str);
+////			else if	(str.equals("/"))	ops.push(str);
+////			else if (str.equals(")"))
+////			{
+////				String op = ops.pop();
+////				double v = vals.pop();
+////				if			(op.equals("+")) 	v = vals.pop() + v;
+////				else if		(op.equals("-")) 	v = vals.pop() - v;
+////				else if		(op.equals("*")) 	v = vals.pop() * v;
+////				else if		(op.equals("/")) 	v = vals.pop() / v;
+////				vals.push(v);
+////			}
+////			else vals.push(Double.parseDouble(str));
+//		}
+////		//vals.print();
+//
+//		//vals.pop();
+//		//vals.print();
+//		//StringStack.print();
+
+
+
+
+		if(isFull())
+		{
+			System.out.println("Stack Overflow");
+		}
+		else if(tail == entries.length)
+		{
+			tail = 0;
+		}
+		else
+		{
+			entries[tail++] = t;
+			N++;
+		}
