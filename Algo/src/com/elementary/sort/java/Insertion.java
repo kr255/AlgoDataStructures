@@ -1,6 +1,6 @@
 package com.elementary.sort.java;
 
-public class Selection {
+public class Insertion {
 
 	private static boolean less(Comparable v, Comparable w)
 	{
@@ -12,21 +12,17 @@ public class Selection {
 		a[i] = a[j];
 		a[j] = swap;
 	}
-	public static void sort(Comparable a[])
-	{
+	public static void sort(Comparable[] a) {
+		
 		int N = a.length;
-		for(int i = 0; i<N; i++)
+		for(int i=1; i < N; i++)
 		{
-			int min = i;
-			for(int j=i+1; j< N; j++)
+			for(int j=i; j > 0 && less(a[j], a[j-1]); j--)
 			{
-				if(less(a[j], a[min]))
-				{
-					min = j;
-				}
+				exchange(a, j, j-1);
 			}
-			exchange(a, i, min);
 		}
+
 	}
 	public static boolean isSorted(Comparable a[])
 	{
@@ -39,14 +35,12 @@ public class Selection {
 	}
 	public static void main(String[] args) {
 		
-		Integer a[] = {5,0,4,3};
-		sort(a);
-		for(Integer i : a)
+		String arr[] = {"asd", "aab", "abc", "qwe"};
+		sort(arr);
+		for(String a : arr)
 		{
-			System.out.println(i);
-		}     
-			
-		System.out.println(isSorted(a));
-
+			System.out.println(a);
+		}
 	}
+
 }
