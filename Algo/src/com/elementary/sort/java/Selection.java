@@ -36,7 +36,6 @@ public class Selection {
 				return false;	
 		}
 		return true;
-		
 	}
 	public static void main(String[] args) {
 		

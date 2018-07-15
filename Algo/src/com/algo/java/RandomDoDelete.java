@@ -43,8 +43,8 @@ public class RandomDoDelete {
 //			System.out.print(i);
 //		}
 //		
-		int array[] = {2,5,9,4};
-		SelectionSort(array);
+		int array[] = {2,5,9,4,0};
+		insertionSort(array);
 		for(Integer i : array)
 		{
 			System.out.print(i + " ");
@@ -52,20 +52,14 @@ public class RandomDoDelete {
 	}
 	public static void insertionSort(int arr[])
 	{
-		int i, m;
-		for(int j = 1; j<arr.length;j++)
+		for(int i = 1; i<arr.length;i++)
 		{
-			i = 0;
-			while(arr[j] > arr[i])
+			for(int j = i; j > 0 && (arr[j] < arr[j-1]); j--)
 			{
-				i++;
+				int temp = arr[j];
+				arr[j] = arr[j-1];
+				arr[j-1] = temp;
 			}
-			m = arr[j];
-			for(int k=0; k < (j-i); k++)
-			{
-				arr[j-k] = arr[j-k-1];
-			}
-			arr[i] = m;
 		}
 	}
 	
