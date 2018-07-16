@@ -24,6 +24,48 @@ public class Insertion {
 		}
 
 	}
+	/*
+	 * ShellSort implementation
+	 */
+	public static void shellsort(Comparable[] a) {
+		
+		int N = a.length;
+		int h = 1;
+		while(h < N/3)
+		{
+			h=3*h+1;
+		}
+		while(h>=1)
+		{
+			for(int i = h; i < N; i++)
+			{
+				for(int j = i; j >=h  && less(a[j], a[j-h]); j=j-h)
+				{
+					exchange(a, j, j-h);
+				}
+			}
+			h=h/3;
+		}
+
+
+	}
+	/*
+	 * insertion sort without the adjacent compare.
+	 * the compare is given during the test
+	 * unlike actual shellsort that calculates the h-sort
+	 */
+	public static void shellsorttwo(Comparable a[], int h)
+	{
+		int N = a.length;
+		for(int i = h; i < N; i++)
+		{
+			for(int j = i; j>=h && less(a[j], a[j-h]); j=j-h)
+			{
+				exchange(a, j, j-h);
+			}
+		}
+			
+	}
 	public static boolean isSorted(Comparable a[])
 	{
 		for(int i=1; i < a.length; i++)
@@ -35,12 +77,19 @@ public class Insertion {
 	}
 	public static void main(String[] args) {
 		
-		String arr[] = {"asd", "aab", "abc", "qwe"};
-		sort(arr);
-		for(String a : arr)
+
+		int loop[] = {701,301,132,57,23,10, 4, 1};
+		String arrc[] = {"s","h","e","l","l","s","o","r","t","e","x","a","m","p","l","e"};
+		
+		for(Integer i : loop)
+			shellsorttwo(arrc, i);
+		for(String a : arrc)
 		{
-			System.out.println(a);
+			System.out.print(a);
 		}
+		System.out.println();
+		
+
 	}
 
 }
