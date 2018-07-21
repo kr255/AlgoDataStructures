@@ -43,8 +43,8 @@ public class RandomDoDelete {
 //			System.out.print(i);
 //		}
 //		
-		int array[] = {2,5,9,4,0};
-		insertionSort(array);
+		int array[] = {2,5,9,4};
+		mergesort(array);
 		for(Integer i : array)
 		{
 			System.out.print(i + " ");
@@ -100,7 +100,43 @@ public class RandomDoDelete {
 			arr[i] = temp;
 		}
 	}
+	static int aux[];
 
-
+	public static void mergesort(int a[])
+	{
+		aux = new int[a.length];
+		sort(a, 0, a.length - 1);
+	}
+	public static void Merge(int arr[], int l, int m, int hi)
+	{
+		
+		int i = l, j=m+1;
+		for(int k = l; k<= hi; k++)
+		{
+			aux[k] = arr[k];
+		}
+		for(int k = l; k<= hi; k++)
+		{
+			if(i > m)
+				arr[k] = aux[j++];
+			else if(j > hi)
+				arr[k] = aux[i++];
+			else if(aux[j] < aux[i])
+				arr[k] = aux[j++];
+			else
+				arr[k] = aux[i++];
+		}
+	}
+	public static void sort(int arr[], int lo, int hi)
+	{
+		if(hi <= lo)
+		{
+			return;
+		}
+		int mid = lo + (hi - lo)/2;
+		sort(arr, lo, mid);
+		sort(arr, mid+1, hi);
+		Merge(arr, lo, mid, hi);
+	}
 
 }
