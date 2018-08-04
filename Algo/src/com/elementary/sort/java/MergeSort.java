@@ -20,11 +20,11 @@ public class MergeSort {
 		int mid = low + (high - low) /2;
 		sort(a, low, mid);
 		sort(a, mid+1, high);
-		if(less(a[mid+1], a[mid]) || a[mid+1] == a[mid])
+		if(!less(a[mid+1], a[mid]) || a[mid] == a[mid+1])
 		{
-			merge(a, low, mid, high);
+			return;
 		}
-		//merge(a, low, mid, high);
+		merge(a, low, mid, high);
 	}
 	private static void merge(Comparable a[], int low, int mid, int high)
 	{
@@ -54,7 +54,6 @@ public class MergeSort {
 //			System.out.print(i + " ");
 //		}
 		//String array[] = {"q","u","e","s","t","i","o","n"};
-
 		String array[] = {"e","i","n","o","q","s","t","u"};
 		sort(array);
 		for(String i : array)
